@@ -44,3 +44,5 @@ const petya = new Stundent(user.Name, user.LastName, "Shenderovich", 2, "Диз�
 
 Object.assign(petya, Daniely)
 console.log(petya.toString());
+
+
