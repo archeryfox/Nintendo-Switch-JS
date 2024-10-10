@@ -42,7 +42,3 @@ const Daniely = new Stundent('Алёша','Попов', 'Венедиктови�
 
 const petya = new Stundent(user.Name, user.LastName, "Shenderovich", 2, "Дизайн");
 
-Object.assign(petya, Daniely)
-console.log(petya.toString());
-
-
