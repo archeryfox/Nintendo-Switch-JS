@@ -1,4 +1,4 @@
-class  Chelovek  {
+class Chelovek  {
     Name = ''
     static LastName = ''
     #SurName = ''
@@ -41,4 +41,5 @@ let user = new Chelovek('Peter', 'Folavekev', 'Artyomovich')
 const Daniely = new Stundent('Алёша','Попов', 'Венедиктович', 3, 'Архитектурный')
 
 const petya = new Stundent(user.Name, user.LastName, "Shenderovich", 2, "Дизайн");
+console.log(user);
 
