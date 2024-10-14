@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import Header from "./components/header.jsx";
+import sideLeft from "./components/side-left.jsx";
+import conScrOnOff from "./components/console-screen-on-off.jsx";
+import sideRight from "./components/side-right.jsx";
+import Modal from "./components/modal.jsx";
+import InterfaceButtons from "./components/interface-buttons.jsx"; // Импортируем новый компонент
+import { useState } from "react";
+
+import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.js";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [modalContent, setModalContent] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const openModal = (content) => {
+        setModalContent(content);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    return (
+        <>
+            {Header()}
+            <div className='flex justify-between'>
+                {sideLeft()}
+                {conScrOnOff()}
+                {sideRight()}
+            </div>
+            <div className="flex flex-col items-center justify-center text-blue-950">
+                <h1 className="text-4xl font-bold mb-8">Интерфейс Консоли</h1>
+
+                <InterfaceButtons
+                    openModal={openModal}
+                    user1={user1}
+                    console1={console1}
+                    game1={game1}
+                    settings1={settings1}
+                    menu1={menu1}
+                    store1={store1}
+                />
+
+                {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;
