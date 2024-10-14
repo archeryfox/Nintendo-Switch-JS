@@ -5,7 +5,10 @@ export default function sideRight() {
         <div className={styles.side_right}>
             <div>
                 <button className={styles.button_direction}>
-                    Right
+                    ZR
+                </button>
+                <button className={styles.button_direction}>
+                    R
                 </button>
                 <button className={styles.button_volume}>
                     +
@@ -33,7 +36,7 @@ export default function sideRight() {
             </div>
             <div>
                 <button className={styles.button_joystick}>
-                    RJ
+                R
                 </button>
             </div>
             <div>

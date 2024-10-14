@@ -14,6 +14,7 @@ import {useState} from "react";
 function App() {
     const [modalContent, setModalContent] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isButtonVisible, setIsButtonVisible] = useState(false);
 
     const openModal = (content) => {
         setModalContent(content);
@@ -24,6 +25,10 @@ function App() {
         setIsModalOpen(false);
     };
 
+    const toggleButtonsVisible = () => {
+        setIsButtonVisible(prevState => !prevState);
+    }
+
     // Примеры объектов
     const user1 = new User("Player1", 15, 120);
     const console1 = new Console("Xtreme 2024", 1000, "v1.05");
@@ -32,27 +37,41 @@ function App() {
     const menu1 = new Menu(["Start", "Settings", "Help"]);
     const store1 = new Store(["Space Invaders", "Racing Pro", "Fantasy RPG"], "USD");
 
+
     return (
         <>
           {Header()}
           <div className='flex justify-between'>
               {sideLeft()}
-              {conScrOnOff()}
+              {conScrOnOff(toggleButtonsVisible)}
               {sideRight()}
           </div>
-          <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
-              <h1 className="text-4xl font-bold mb-8">Game Console Interface</h1>
-              <div className="grid grid-cols-2 gap-4">
-                  <button onClick={() => openModal(user1.toString())} className="btn text-blue-950">Show User Info</button>
-                  <button onClick={() => openModal(console1.toString())} className="btn text-blue-950">Show Console Info</button>
-                  <button onClick={() => openModal(game1.toString())} className="btn text-blue-950">Show Game Info</button>
-                  <button onClick={() => openModal(settings1.toString())} className="btn text-blue-950">Show Settings</button>
-                  <button onClick={() => openModal(menu1.toString())} className="btn text-blue-950">Show Menu</button>
-                  <button onClick={() => openModal(store1.toString())} className="btn text-blue-950">Show Store Info</button>
-              </div>
+            {isButtonVisible && (
+                <div className="flex flex-col items-center justify-center text-white p-2">
+                    <div className="grid grid-cols-3 gap-4">
+                        <button onClick={() => openModal(user1.toString())} className="btn text-blue-950">Show User
+                            Info
+                        </button>
+                        <button onClick={() => openModal(console1.toString())} className="btn text-blue-950">Show
+                            Console Info
+                        </button>
+                        <button onClick={() => openModal(game1.toString())} className="btn text-blue-950">Show Game
+                            Info
+                        </button>
+                        <button onClick={() => openModal(settings1.toString())} className="btn text-blue-950">Show
+                            Settings
+                        </button>
+                        <button onClick={() => openModal(menu1.toString())} className="btn text-blue-950">Show Menu
+                        </button>
+                        <button onClick={() => openModal(store1.toString())} className="btn text-blue-950">Show Store
+                            Info
+                        </button>
+                    </div>
 
-              {isModalOpen && <Modal content={modalContent} onClose={closeModal}/>}
-          </div>
+                    {isModalOpen && <Modal content={modalContent} onClose={closeModal}/>}
+                </div>
+            )}
+
         </>
     )
 }

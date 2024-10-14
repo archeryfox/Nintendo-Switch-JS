@@ -5,13 +5,16 @@ export default function sideLeft(){
         <div className={styles.side_left}>
             <div>
                 <button className={styles.button_direction}>
-                    Left
+                    ZL
+                </button>
+                <button className={styles.button_direction}>
+                    L
                 </button>
                 <button className={styles.button_volume}>
                     -
                 </button>
                 <button className={styles.button_joystick}>
-                    LJ
+                    L
                 </button>
             </div>
             <div>

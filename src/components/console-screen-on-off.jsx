@@ -1,10 +1,11 @@
 import styles from "../Core.module.scss";
 import viteLogo from "../../public/nintendo-switch.png";
 
-export default function conScrOnOff(){
+export default function conScrOnOff(toggleButtons){
+
     return (
         <div>
-            <button className={styles.button}>
+            <button className={styles.button} onClick={toggleButtons}>
                 On/Off
             </button>
             <div>
