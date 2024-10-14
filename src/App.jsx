@@ -12,6 +12,7 @@ import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.
 function App() {
     const [modalContent, setModalContent] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isButtonVisible, setIsButtonVisible] = useState(false);
 
     const openModal = (content) => {
         setModalContent(content);
@@ -22,12 +23,16 @@ function App() {
         setIsModalOpen(false);
     };
 
+    const toggleButtonsVisible = () => {
+        setIsButtonVisible(prevState => !prevState);
+    }
+
     return (
         <>
             {Header()}
             <div className='flex justify-between'>
                 {sideLeft()}
-                {conScrOnOff()}
+                {conScrOnOff(toggleButtonsVisible)}
                 {sideRight()}
             </div>
             <div className="flex flex-col items-center justify-center text-blue-950">
