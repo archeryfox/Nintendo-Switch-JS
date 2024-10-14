@@ -1,30 +1,30 @@
-import './App.css';
-import Header from "./components/header.jsx";
-import SideLeft from "./components/side-left.jsx";
-import ConScrOnOff from "./components/console-screen-on-off.jsx";
-import SideRight from "./components/side-right.jsx";
-import Modal from "./components/modal.jsx";
-import InterfaceButtons from "./components/interface-buttons.jsx";
-import { useState } from "react";
+import './App.css'; // Стили для приложения
+import Header from "./components/header.jsx"; // Компонент "Header" (заголовок)
+import SideLeft from "./components/side-left.jsx"; // Левый блок
+import ConScrOnOff from "./components/console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
+import SideRight from "./components/side-right.jsx"; // Правый блок
+import Modal from "./components/modal.jsx"; // Компонент модального окна
+import InterfaceButtons from "./components/interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
 
-import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.js";
+import { useState } from "react"; // Хук useState для управления состоянием компонентов
+import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
 
 function App() {
-    const [modalContent, setModalContent] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isButtonVisible, setIsButtonVisible] = useState(false); // Видимость кнопок
+    const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки
+    const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для управления открытием/закрытием модалки
+    const [isButtonVisible, setIsButtonVisible] = useState(false); // Состояние для управления видимостью кнопок интерфейса
 
     const openModal = (content) => {
-        setModalContent(content);
-        setIsModalOpen(true);
+        setModalContent(content); // Устанавливаем контент для модалки
+        setIsModalOpen(true); // Открываем модалку
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);
+        setIsModalOpen(false); // Закрываем модалку
     };
 
     const toggleButtonsVisible = () => {
-        setIsButtonVisible(prevState => !prevState); // Переключение видимости кнопок
+        setIsButtonVisible(prevState => !prevState); // Переключаем видимость кнопок
     };
 
     return (
@@ -40,7 +40,7 @@ function App() {
                 <h1 className="text-4xl font-bold mb-8">Интерфейс Консоли</h1>
 
                 {/* Кнопки интерфейса будут видны, если isButtonVisible = true */}
-                {isButtonVisible && (
+                <div className={`transition-opacity duration-500 ${isButtonVisible ? 'opacity-100' : 'opacity-0'}`}>
                     <InterfaceButtons
                         openModal={openModal}
                         user1={user1}
@@ -50,7 +50,7 @@ function App() {
                         menu1={menu1}
                         store1={store1}
                     />
-                )}
+                </div>
 
                 {/* Модалка */}
                 {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}

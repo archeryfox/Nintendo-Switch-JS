@@ -1,6 +1,6 @@
 import styles from "../Core.module.scss";
 
-export default function sideLeft(){
+export default function sideLeft() {
     return (
         <div className={styles.side_left}>
             <div>
