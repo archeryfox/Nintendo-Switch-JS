@@ -1,28 +1,28 @@
 class User {
-    #username;
-    #level;
-    #gamesPlayed;
+    username;
+    level;
+    gamesPlayed;
 
     constructor(username, level, gamesPlayed) {
-        this.#username = username;
-        this.#level = level;
-        this.#gamesPlayed = gamesPlayed;
+        this.username = username;
+        this.level = level;
+        this.gamesPlayed = gamesPlayed;
     }
 
     getUsername() {
-        return this.#username;
+        return this.username;
     }
 
     getLevel() {
-        return this.#level;
+        return this.level;
     }
 
     getGamesPlayed() {
-        return this.#gamesPlayed;
+        return this.gamesPlayed;
     }
 
     toString() {
-        return `User: ${this.#username}, Level: ${this.#level}, Games Played: ${this.#gamesPlayed}`;
+        return `Пользователь: ${this.username}, Уровень: ${this.level}, Игры: ${this.gamesPlayed}`;
     }
 }
 

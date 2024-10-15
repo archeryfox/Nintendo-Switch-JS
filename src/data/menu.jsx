@@ -1,16 +1,16 @@
 class Menu {
-    #items;
+    items;
 
     constructor(items) {
-        this.#items = items;
+        this.items = items;
     }
 
     getItems() {
-        return this.#items;
+        return this.items;
     }
 
     toString() {
-        return `Menu: Options: ${this.#items.join(", ")}`;
+        return `Меню: Опции: ${this.items.join(", ")}`;
     }
 }
 

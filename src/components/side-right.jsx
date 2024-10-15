@@ -36,7 +36,7 @@ export default function sideRight() {
             </div>
             <div>
                 <button className={styles.button_joystick}>
-                R
+                    R
                 </button>
             </div>
             <div>

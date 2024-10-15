@@ -1,79 +1,62 @@
-import './App.css'
-import Header from "./components/header.jsx";
-import sideLeft from "./components/side-left.jsx";
-import conScrOnOff from "./components/console-screen-on-off.jsx";
-import sideRight from "./components/side-right.jsx";
-import Console from "./data/console.jsx";
-import User from "./data/user.jsx";
-import Menu from "./data/menu.jsx";
-import Settings from "./data/settings.jsx";
-import Game from "./data/game.jsx";
-import Store from "./data/store.jsx";
-import Modal from "./components/modal.jsx";
-import {useState} from "react";
+import './App.css'; // Стили для приложения
+import Header from "./components/header.jsx"; // Компонент "Header" (заголовок)
+import SideLeft from "./components/side-left.jsx"; // Левый блок
+import ConScrOnOff from "./components/console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
+import SideRight from "./components/side-right.jsx"; // Правый блок
+import Modal from "./components/modal.jsx"; // Компонент модального окна
+import InterfaceButtons from "./components/interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
+
+import { useState } from "react"; // Хук useState для управления состоянием компонентов
+import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
+
 function App() {
-    const [modalContent, setModalContent] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isButtonVisible, setIsButtonVisible] = useState(false);
+    const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки
+    const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для управления открытием/закрытием модалки
+    const [isButtonVisible, setIsButtonVisible] = useState(false); // Состояние для управления видимостью кнопок интерфейса
 
     const openModal = (content) => {
-        setModalContent(content);
-        setIsModalOpen(true);
+        setModalContent(content); // Устанавливаем контент для модалки
+        setIsModalOpen(true); // Открываем модалку
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);
+        setIsModalOpen(false); // Закрываем модалку
     };
 
     const toggleButtonsVisible = () => {
-        setIsButtonVisible(prevState => !prevState);
-    }
-
-    // Примеры объектов
-    const user1 = new User("Player1", 15, 120);
-    const console1 = new Console("Xtreme 2024", 1000, "v1.05");
-    const game1 = new Game("Space Invaders", "Arcade", 9);
-    const settings1 = new Settings(80, 50, "English");
-    const menu1 = new Menu(["Start", "Settings", "Help"]);
-    const store1 = new Store(["Space Invaders", "Racing Pro", "Fantasy RPG"], "USD");
-
+        setIsButtonVisible(prevState => !prevState); // Переключаем видимость кнопок
+    };
 
     return (
         <>
-          {Header()}
-          <div className='flex justify-between'>
-              {sideLeft()}
-              {conScrOnOff(toggleButtonsVisible)}
-              {sideRight()}
-          </div>
-            {isButtonVisible && (
-                <div className="flex flex-col items-center justify-center text-white p-2">
-                    <div className="grid grid-cols-3 gap-4">
-                        <button onClick={() => openModal(user1.toString())} className="btn text-blue-950">Show User
-                            Info
-                        </button>
-                        <button onClick={() => openModal(console1.toString())} className="btn text-blue-950">Show
-                            Console Info
-                        </button>
-                        <button onClick={() => openModal(game1.toString())} className="btn text-blue-950">Show Game
-                            Info
-                        </button>
-                        <button onClick={() => openModal(settings1.toString())} className="btn text-blue-950">Show
-                            Settings
-                        </button>
-                        <button onClick={() => openModal(menu1.toString())} className="btn text-blue-950">Show Menu
-                        </button>
-                        <button onClick={() => openModal(store1.toString())} className="btn text-blue-950">Show Store
-                            Info
-                        </button>
-                    </div>
+            <Header />
+            <div className='flex justify-between'>
+                <SideLeft />
+                {/* Используем JSX синтаксис для компонента и передаем функцию как проп */}
+                <ConScrOnOff toggleButtons={toggleButtonsVisible} />
+                <SideRight />
+            </div>
+            <div className="flex flex-col items-center justify-center text-blue-950">
+                <h1 className="text-4xl font-bold mb-8">Интерфейс Консоли</h1>
 
-                    {isModalOpen && <Modal content={modalContent} onClose={closeModal}/>}
+                {/* Кнопки интерфейса будут видны, если isButtonVisible = true */}
+                <div className={`transition-opacity duration-500 ${isButtonVisible ? 'opacity-100' : 'opacity-0'}`}>
+                    <InterfaceButtons
+                        openModal={openModal}
+                        user1={user1}
+                        console1={console1}
+                        game1={game1}
+                        settings1={settings1}
+                        menu1={menu1}
+                        store1={store1}
+                    />
                 </div>
-            )}
 
+                {/* Модалка */}
+                {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
+            </div>
         </>
-    )
+    );
 }
 
-export default App
+export default App;

@@ -1,28 +1,28 @@
 class Console {
-    #model;
-    #storage;
-    #firmwareVersion;
+    model;
+    storage;
+    firmwareVersion;
 
     constructor(model, storage, firmwareVersion) {
-        this.#model = model;
-        this.#storage = storage;
-        this.#firmwareVersion = firmwareVersion;
+        this.model = model;
+        this.storage = storage;
+        this.firmwareVersion = firmwareVersion;
     }
 
     getModel() {
-        return this.#model;
+        return this.model;
     }
 
     getStorage() {
-        return this.#storage;
+        return this.storage;
     }
 
     getFirmwareVersion() {
-        return this.#firmwareVersion;
+        return this.firmwareVersion;
     }
 
     toString() {
-        return `Console: Model ${this.#model}, Storage: ${this.#storage}GB, Firmware Version: ${this.#firmwareVersion}`;
+        return `Консоль: Модель ${this.model}, Память: ${this.storage}GB, Версия ПО: ${this.firmwareVersion}`;
     }
 }
 
