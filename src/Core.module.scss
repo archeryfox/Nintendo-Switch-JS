@@ -30,3 +30,15 @@
 .button_home {
   @apply bg-gray-950 px-2 py-2 rounded-full text-xs text-white mb-2;
 }
+
+.fav_game {
+  @apply my-10 grid justify-center;
+}
+
+.fav_h {
+  @apply font-bold text-lg my-4;
+}
+
+.fav_p {
+  @apply w-[514px] text-justify my-3;
+}

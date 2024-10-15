@@ -3,8 +3,9 @@ import Header from "./components/Header.jsx"; // Компонент "Header" (з
 import SideLeft from "./components/Side-left.jsx"; // Левый блок
 import ConScrOnOff from "./components/Console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
 import SideRight from "./components/Side-right.jsx"; // Правый блок
-import Modal from "./components/modal.jsx"; // Компонент модального окна
+import Modal from "./components/Modal.jsx"; // Компонент модального окна
 import InterfaceButtons from "./components/Interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
+import FavGame from "./components/FavGame.jsx";
 
 import { useState } from "react"; // Хук useState для управления состоянием компонентов
 import { user1, console1, game1, settings1, menu1, store1 } from "./data/Config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
@@ -55,6 +56,7 @@ function App() {
                 {/* Модалка */}
                 {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
             </div>
+            <FavGame />
         </>
     );
 }
