@@ -1,9 +1,9 @@
-import User from "./user.jsx";
-import Console from "./console.jsx";
-import Game from "./game.jsx";
-import Settings from "./settings.jsx";
-import Menu from "./menu.jsx";
-import Store from "./store.jsx";
+import User from "./User.jsx";
+import Console from "./Console.jsx";
+import Game from "./Game.jsx";
+import Settings from "./Settings.jsx";
+import Menu from "./Menu.jsx";
+import Store from "./Store.jsx";
 
 // Конфигурация объектов
 export const user1 = new User("Игрок 1", 15, 120);

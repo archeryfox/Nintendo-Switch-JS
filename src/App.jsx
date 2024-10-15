@@ -7,7 +7,7 @@ import Modal from "./components/modal.jsx"; // Компонент модальн
 import InterfaceButtons from "./components/Interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
 
 import { useState } from "react"; // Хук useState для управления состоянием компонентов
-import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
+import { user1, console1, game1, settings1, menu1, store1 } from "./data/Config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
 
 function App() {
     const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки
