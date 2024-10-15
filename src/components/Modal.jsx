@@ -15,7 +15,7 @@ const Modal = ({ content, onClose }) => {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div
-                className={`bg-white text-black p-6 rounded shadow-lg max-w-lg w-full transition-transform duration-200 ${
+                className={`bg-white text-black p-6 rounded shadow-lg w-full max-w-[50rem] transition-transform duration-200 ${
                     isVisible ? 'translate-y-0 opacity-100' : '-translate-y-20 opacity-0'
                 }`}
             >
