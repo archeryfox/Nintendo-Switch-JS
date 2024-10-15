@@ -18,6 +18,7 @@ function App() {
     const [isButtonVisible, setIsButtonVisible] = useState(false); // Состояние для управления видимостью кнопок интерфейса
     const [isFavGameVisible, setIsFavGameVisible] = useState(false); // Состояние для видимости блока с избранными играми
     const [isTutorialModalOpen, setIsTutorialModalOpen] = useState(true); // Состояние для управления открытием/закрытием модального окна обучения
+    const [isConsoleOn, setIsConsoleOn] = useState(false); // Состояние для управления изображением консоли
 
     const openModal = (content) => {
         setModalContent(content); // Устанавливаем контент для модалки
@@ -40,13 +41,18 @@ function App() {
         setIsFavGameVisible(prevState => !prevState); // Переключаем видимость блока с играми
     };
 
+    const toggleConsole = () => {
+        setIsConsoleOn(prevState => !prevState); // Переключаем изображение консоли
+        toggleButtonsVisible(); // Переключаем видимость кнопок интерфейса
+    };
+
     return (
         <>
             <Header />
             <div className='flex justify-between'>
                 <SideLeft />
-                {/* Используем JSX синтаксис для компонента и передаем функцию как проп */}
-                <ConScrOnOff toggleButtons={toggleButtonsVisible} />
+                {/* Передаем состояние и функцию управления в ConScrOnOff */}
+                <ConScrOnOff isConsoleOn={isConsoleOn} toggleConsole={toggleConsole} />
                 <SideRight />
             </div>
             <div className="flex flex-col items-center justify-center text-blue-950">
