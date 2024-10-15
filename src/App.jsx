@@ -1,4 +1,5 @@
 import './App.css'; // Стили для приложения
+import './index.css';
 import Header from "./components/Header.jsx"; // Компонент "Header" (заголовок)
 import SideLeft from "./components/Side-left.jsx"; // Левый блок
 import ConScrOnOff from "./components/Console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
@@ -6,14 +7,18 @@ import SideRight from "./components/Side-right.jsx"; // Правый блок
 import Modal from "./components/Modal.jsx"; // Компонент модального окна
 import InterfaceButtons from "./components/Interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
 import FavGame from "./components/FavGame.jsx";
+import ToggleFavGameButton from "./components/ToggleFavGameButton.jsx"; // Компонент кнопки для показа/скрытия
+import TutorialModal from "./components/TutorialModal.jsx"; // Импортируем компонент модального окна обучения
 
-import { useState } from "react"; // Хук useState для управления состоянием компонентов
+import { useState, useEffect } from "react"; // Хук useState для управления состоянием компонентов
 import { user1, console1, game1, settings1, menu1, store1 } from "./data/Config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
 
 function App() {
     const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки
     const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для управления открытием/закрытием модалки
     const [isButtonVisible, setIsButtonVisible] = useState(false); // Состояние для управления видимостью кнопок интерфейса
+    const [isFavGameVisible, setIsFavGameVisible] = useState(false); // Состояние для видимости блока с избранными играми
+    const [isTutorialModalOpen, setIsTutorialModalOpen] = useState(true); // Состояние для управления открытием/закрытием модального окна обучения
     const [isConsoleOn, setIsConsoleOn] = useState(false); // Состояние для управления изображением консоли
 
     const openModal = (content) => {
@@ -23,6 +28,14 @@ function App() {
 
     const closeModal = () => {
         setIsModalOpen(false); // Закрываем модалку
+    };
+
+    const closeTutorialModal = () => {
+        setIsTutorialModalOpen(false); // Закрываем модальное окно обучения
+    };
+
+    const toggleFavGame = () => {
+        setIsFavGameVisible(prevState => !prevState); // Переключаем видимость блока с играми
     };
 
     const toggleButtonsVisible = () => {
@@ -59,10 +72,19 @@ function App() {
                     />
                 </div>
 
+                {/* Модалка для обучения */}
+                {isTutorialModalOpen && <TutorialModal onClose={closeTutorialModal} />}
+
                 {/* Модалка */}
                 {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
             </div>
-            <FavGame />
+            {/* Кнопка для показа/скрытия компонента FavGame */}
+            <ToggleFavGameButton toggleFavGame={toggleFavGame} isFavGameVisible={isFavGameVisible} />
+
+            {/* Анимация плавного показа/скрытия блока с играми */}
+            <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isFavGameVisible ? 'max-h-full opacity-100' : 'max-h-0 opacity-0'}`}>
+                <FavGame />
+            </div>
         </>
     );
 }
