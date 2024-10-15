@@ -14,6 +14,7 @@ function App() {
     const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки
     const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для управления открытием/закрытием модалки
     const [isButtonVisible, setIsButtonVisible] = useState(false); // Состояние для управления видимостью кнопок интерфейса
+    const [isConsoleOn, setIsConsoleOn] = useState(false); // Состояние для управления изображением консоли
 
     const openModal = (content) => {
         setModalContent(content); // Устанавливаем контент для модалки
@@ -28,13 +29,18 @@ function App() {
         setIsButtonVisible(prevState => !prevState); // Переключаем видимость кнопок
     };
 
+    const toggleConsole = () => {
+        setIsConsoleOn(prevState => !prevState); // Переключаем изображение консоли
+        toggleButtonsVisible(); // Переключаем видимость кнопок интерфейса
+    };
+
     return (
         <>
             <Header />
             <div className='flex justify-between'>
                 <SideLeft />
-                {/* Используем JSX синтаксис для компонента и передаем функцию как проп */}
-                <ConScrOnOff toggleButtons={toggleButtonsVisible} />
+                {/* Передаем состояние и функцию управления в ConScrOnOff */}
+                <ConScrOnOff isConsoleOn={isConsoleOn} toggleConsole={toggleConsole} />
                 <SideRight />
             </div>
             <div className="flex flex-col items-center justify-center text-blue-950">
