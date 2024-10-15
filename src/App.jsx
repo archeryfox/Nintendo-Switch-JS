@@ -1,10 +1,10 @@
 import './App.css'; // Стили для приложения
-import Header from "./components/header.jsx"; // Компонент "Header" (заголовок)
-import SideLeft from "./components/side-left.jsx"; // Левый блок
-import ConScrOnOff from "./components/console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
-import SideRight from "./components/side-right.jsx"; // Правый блок
+import Header from "./components/Header.jsx"; // Компонент "Header" (заголовок)
+import SideLeft from "./components/Side-left.jsx"; // Левый блок
+import ConScrOnOff from "./components/Console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
+import SideRight from "./components/Side-right.jsx"; // Правый блок
 import Modal from "./components/modal.jsx"; // Компонент модального окна
-import InterfaceButtons from "./components/interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
+import InterfaceButtons from "./components/Interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
 
 import { useState } from "react"; // Хук useState для управления состоянием компонентов
 import { user1, console1, game1, settings1, menu1, store1 } from "./data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
