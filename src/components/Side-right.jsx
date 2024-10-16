@@ -10,16 +10,13 @@ export default function sideRight() {
                 <button className={styles.button_direction}>
                     R
                 </button>
-                <button className={styles.button_volume}>
-                    +
-                </button>
                 <div>
                     <div>
                         <button className={styles.button}>
                             X
                         </button>
                     </div>
-                    <div>
+                    <div className="flex">
                         <button className={styles.button}>
                             A
                         </button>
