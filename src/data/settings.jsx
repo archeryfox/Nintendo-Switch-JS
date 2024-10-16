@@ -1,3 +1,4 @@
+// settings.jsx
 class Settings {
     brightness;
     volume;
@@ -9,16 +10,9 @@ class Settings {
         this.language = language;
     }
 
-    getBrightness() {
-        return this.brightness;
-    }
-
-    getVolume() {
-        return this.volume;
-    }
-
-    getLanguage() {
-        return this.language;
+    // Метод для возврата данных в виде строки
+    toFormattedString() {
+        return `Настройки: Яркость: ${this.brightness}%, Громкость: ${this.volume}%, Язык: ${this.language}`;
     }
 
     toString() {

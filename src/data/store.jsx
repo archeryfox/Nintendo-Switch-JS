@@ -20,4 +20,27 @@ class Store {
     }
 }
 
+class Games extends Store {
+    title;
+    genre;
+    rating;
+
+    getTitle() {
+        return this.title;
+    }
+
+    getGenre() {
+        return this.genre;
+    }
+
+    getRating() {
+        return this.rating;
+    }
+
+    toString() {
+        return `Игра: ${this.title} (Жанр: ${this.genre}, Рейтинг: ${this.rating}/10)`;
+    }
+}
+
+
 export default Store;

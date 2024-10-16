@@ -1,3 +1,4 @@
+// menu.jsx
 class Menu {
     items;
 
@@ -7,6 +8,11 @@ class Menu {
 
     getItems() {
         return this.items;
+    }
+
+    // Метод для возврата данных в виде строки
+    toFormattedString() {
+        return `Меню: ${this.items.join(", ")}`;
     }
 
     toString() {

@@ -10,9 +10,6 @@ export default function sideLeft() {
                 <button className={styles.button_direction}>
                     L
                 </button>
-                <button className={styles.button_volume}>
-                    -
-                </button>
                 <button className={styles.button_joystick}>
                     L
                 </button>
@@ -23,7 +20,7 @@ export default function sideLeft() {
                         &#8657;
                     </button>
                 </div>
-                <div>
+                <div className="flex">
                     <button className={styles.button}>
                         &#8656;
                     </button>

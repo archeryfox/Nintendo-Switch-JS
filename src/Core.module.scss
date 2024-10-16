@@ -1,26 +1,26 @@
 .side_right {
-  @apply bg-red-500 w-[120px] rounded-full py-10 px-4 mx-5;
+  @apply bg-red-500 w-[120px] rounded-full py-6 px-4 mx-5;
 }
 
 .side_left {
-  @apply bg-blue-400 w-[120px] rounded-full py-10 px-4 mx-5;
+  @apply bg-blue-400 w-[120px] rounded-full py-6 px-4 mx-5;
 }
 
 .button_direction {
   @apply bg-gray-950 hover:bg-gray-700 transition-colors duration-500 ease-in-out cursor-pointer
-  px-6 py-2 rounded-md text-base text-white mb-2;
+  px-7 py-2 rounded-md text-base text-white mb-2;
 }
 
 .button_volume {
-  @apply bg-gray-950 px-5 py-1 rounded-md text-base text-white mb-2;
+  @apply bg-gray-950 h-[40px] px-5 py-1 rounded-md text-lg text-white mb-2;
 }
 
 .button_joystick {
-  @apply bg-gray-950 px-5 py-4 rounded-full text-white mb-2 mr-1;
+  @apply bg-gray-950 px-6 py-4 rounded-full text-white mb-2 mr-1;
 }
 
 .button {
-  @apply bg-gray-950 px-3 py-2 rounded-full text-white text-xs mb-2 mr-1;
+  @apply bg-gray-950 px-2 py-2 rounded-full text-white text-xs my-2 mx-2;
 }
 
 .button_sreenshot {
