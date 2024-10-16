@@ -2,11 +2,15 @@ class Game {
     title;
     genre;
     rating;
+    hours;
+    realis;
 
-    constructor(title, genre, rating) {
+    constructor(title, genre, rating, hours, realis) {
         this.title = title;
         this.genre = genre;
         this.rating = rating;
+        this.hours = hours;
+        this.realis = realis;
     }
 
     getTitle() {
@@ -21,8 +25,16 @@ class Game {
         return this.rating;
     }
 
+    getHours() {
+        return this.hours;
+    }
+
+    Relis(){
+        return this.realis;
+    }
+
     toString() {
-        return `Игра: ${this.title} (Жанр: ${this.genre}, Рейтинг: ${this.rating}/10)`;
+        return `${this.title} ${this.genre} ${this.rating} ${this.hours} ${this.realis}`;
     }
 }
 

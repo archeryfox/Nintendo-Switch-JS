@@ -3,7 +3,7 @@ import styles from "../Core.module.scss";
 export default function sideLeft() {
     return (
         <div className={styles.side_left}>
-            <div>
+            <div className="flex flex-col items-center w-full justify-center">
                 <button className={styles.button_direction}>
                     ZL
                 </button>
@@ -14,13 +14,13 @@ export default function sideLeft() {
                     L
                 </button>
             </div>
-            <div>
-                <div>
+            <div className="flex w-full justify-center flex-col">
+                <div className="flex w-full justify-center">
                     <button className={styles.button}>
                         &#8657;
                     </button>
                 </div>
-                <div className="flex">
+                <div className="flex gap-x-5 justify-center">
                     <button className={styles.button}>
                         &#8656;
                     </button>
@@ -28,13 +28,13 @@ export default function sideLeft() {
                         &#8658;
                     </button>
                 </div>
-                <div>
+                <div className="flex w-full justify-center">
                     <button className={styles.button}>
                         &#8659;
                     </button>
                 </div>
             </div>
-            <div>
+            <div className="flex w-full justify-center">
                 <button className={styles.button_sreenshot}>
                     Scr
                 </button>

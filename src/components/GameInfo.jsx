@@ -12,7 +12,13 @@ function GameInfo({ game }) {
                 Жанр: <span className="border border-indigo-400 rounded-lg px-2 py-1">{game.genre}</span>
             </p>
             <p className="grid grid-cols-2 gap-4 py-1">
-                Рейтинг: <span className="border border-indigo-400 rounded-lg px-2 py-1">{game.rating}/10</span>
+                Ачивок: <span className="border border-indigo-400 rounded-lg px-2 py-1">{game.rating}/100</span>
+            </p>
+            <p className="grid grid-cols-2 gap-4 py-1">
+                Часов в игре: <span className="border border-indigo-400 rounded-lg px-2 py-1">{game.hours}</span>
+            </p>
+            <p className="grid grid-cols-2 gap-4 py-1">
+                Релиз: <span className="border border-indigo-400 rounded-lg px-2 py-1">{game.realis}</span>
             </p>
         </div>
     );

@@ -1,8 +1,5 @@
+// src/data/console.jsx
 class Console {
-    model;
-    storage;
-    firmwareVersion;
-
     constructor(model, storage, firmwareVersion) {
         this.model = model;
         this.storage = storage;

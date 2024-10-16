@@ -10,6 +10,11 @@ class Menu {
         return this.items;
     }
 
+    // Статический метод для фильтрации элементов меню
+    static filterItems(items) {
+        return items.filter(item => !item.startsWith("Удалить")); // Фильтрация элементов
+    }
+
     // Метод для возврата данных в виде строки
     toFormattedString() {
         return `Меню: ${this.items.join(", ")}`;

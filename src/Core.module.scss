@@ -1,9 +1,9 @@
 .side_right {
-  @apply bg-red-500 w-[120px] rounded-full py-6 px-4 mx-5;
+  @apply bg-red-500 w-[120px]  rounded-e-[65px] rounded-s-[4px] py-6 px-[4.5rem] mx-10;
 }
 
 .side_left {
-  @apply bg-blue-400 w-[120px] rounded-full py-6 px-4 mx-5;
+  @apply bg-blue-400 w-[120px] rounded-s-[65px] rounded-e-[4px] py-6 px-[4.5rem] mx-10;
 }
 
 .button_direction {
@@ -20,7 +20,7 @@
 }
 
 .button {
-  @apply bg-gray-950 px-2 py-2 rounded-full text-white text-xs my-2 mx-2;
+  @apply bg-gray-950 rounded-[50%] text-white text-xs my-2 mx-2 ;
 }
 
 .button_sreenshot {
@@ -42,3 +42,4 @@
 .fav_p {
   @apply w-[514px] text-justify my-3 text-black;
 }
+
