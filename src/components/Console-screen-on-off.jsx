@@ -1,4 +1,4 @@
-import styles from "../Core.module.scss";
+import styles from "../Core.module.scss"; //Добавление стилий
 import nintendoSwitchOff from "../../public/nintendo-switch-off.png";
 import nintendoSwitchOn from "../../public/nintendo-switch-on.png";
 import iconOnOff from "../../public/on-off.png"
