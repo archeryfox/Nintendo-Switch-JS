@@ -3,7 +3,7 @@ import Header from "./components/header.jsx"; // Компонент "Header" (з
 import SideLeft from "./components/SideLeft.jsx"; // Левый блок
 import ConScrOnOff from "./components/PowerButton.jsx"; // Компонент для включения/выключения экрана консоли
 import SideRight from "./components/SideRight.jsx"; // Правый блок
-import Modal from "./components/modal.jsx"; // Компонент модального окна
+import Modal from "./components/Modal.jsx"; // Компонент модального окна
 import InterfaceButtons from "./components/InterfaceButtons.jsx"; // Компонент для отображения кнопок интерфейса
 import FavGame from "./components/FavGame.jsx"; // Компонент с избранными играми
 import ToggleFavGameButton from "./components/ToggleFavGameButton.jsx"; // Компонент кнопки для показа/скрытия
