@@ -1,6 +1,5 @@
 // src/data/config.js
 import User from "./User.js";
-import Console from "./Console.js";
 import Game from "./Game.js";
 import Settings from "./settings.js";
 import Menu from "./Menu.js";

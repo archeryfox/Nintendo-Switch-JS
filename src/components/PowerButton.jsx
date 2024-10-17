@@ -12,7 +12,7 @@ export default function ConScrOnOff({ isConsoleOn, toggleConsole }) {
                     +
                 </button>
                 {/* Кнопка для переключения состояния консоли и видимости кнопок */}
-                <button className={styles.button} onClick={toggleConsole}>
+                <button className={styles.button1} onClick={toggleConsole}>
                     <img src={iconOnOff} className="w-10 h-10"/>
                 </button>
                 <button className={styles.button_volume}>

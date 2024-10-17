@@ -4,8 +4,8 @@ import React, { useState } from "react";
 function SettingsInfo({ settings }) {
     const [volume, setVolume] = useState(settings.volume);
     const [brightness, setBrightness] = useState(settings.brightness);
-    const [isMusicOn, setIsMusicOn] = useState(settings.isMusicOn); // Состояние для музыки
-    const [isSoundEffectsOn, setIsSoundEffectsOn] = useState(settings.isSoundEffectsOn); // Состояние для звуковых эффектов
+    const [isMusicOn, setIsMusicOn] = useState(settings.OpenGL); // Состояние для музыки
+    const [isSoundEffectsOn, setIsSoundEffectsOn] = useState(settings.SuperSound); // Состояние для звуковых эффектов
 
     // Обработчики изменения громкости и яркости
     const handleVolumeChange = (event) => {
