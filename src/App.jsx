@@ -1,17 +1,17 @@
 import './App.css'; // Стили для приложения
-import './index.css';
-import Header from "./components/Header.jsx"; // Компонент "Header" (заголовок)
-import SideLeft from "./components/Side-left.jsx"; // Левый блок
-import ConScrOnOff from "./components/Console-screen-on-off.jsx"; // Компонент для включения/выключения экрана консоли
-import SideRight from "./components/Side-right.jsx"; // Правый блок
-import Modal from "./components/Modal.jsx"; // Компонент модального окна
-import InterfaceButtons from "./components/Interface-buttons.jsx"; // Компонент для отображения кнопок интерфейса
-import FavGame from "./components/FavGame.jsx";
+import Header from "./components/header.jsx"; // Компонент "Header" (заголовок)
+import SideLeft from "./components/SideLeft.jsx"; // Левый блок
+import ConScrOnOff from "./components/PowerButton.jsx"; // Компонент для включения/выключения экрана консоли
+import SideRight from "./components/SideRight.jsx"; // Правый блок
+import Modal from "./components/modal.jsx"; // Компонент модального окна
+import InterfaceButtons from "./components/InterfaceButtons.jsx"; // Компонент для отображения кнопок интерфейса
+import FavGame from "./components/FavGame.jsx"; // Компонент с избранными играми
 import ToggleFavGameButton from "./components/ToggleFavGameButton.jsx"; // Компонент кнопки для показа/скрытия
 import TutorialModal from "./components/TutorialModal.jsx"; // Импортируем компонент модального окна обучения
+import ConsoleInfo from "./components/ConsoleInfo.jsx";
 
 import { useState, useEffect } from "react"; // Хук useState для управления состоянием компонентов
-import { user1, console1, game1, settings1, menu1, store1 } from "./data/Config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
+import { user1, console1, game1, settings1, menu1, store1, system1 } from "./data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
 
 function App() {
     const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки
@@ -34,12 +34,12 @@ function App() {
         setIsTutorialModalOpen(false); // Закрываем модальное окно обучения
     };
 
-    const toggleFavGame = () => {
-        setIsFavGameVisible(prevState => !prevState); // Переключаем видимость блока с играми
-    };
-
     const toggleButtonsVisible = () => {
         setIsButtonVisible(prevState => !prevState); // Переключаем видимость кнопок
+    };
+
+    const toggleFavGame = () => {
+        setIsFavGameVisible(prevState => !prevState); // Переключаем видимость блока с играми
     };
 
     const toggleConsole = () => {
@@ -57,10 +57,11 @@ function App() {
                 <SideRight />
             </div>
             <div className="flex flex-col items-center justify-center text-blue-950">
-                <h1 className="text-4xl font-bold mb-8">Интерфейс Консоли</h1>
 
+                {isConsoleOn && <ConsoleInfo console={system1} />}
                 {/* Кнопки интерфейса будут видны, если isButtonVisible = true */}
-                <div className={`transition-opacity duration-500 ${isButtonVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <div
+                    className={`transition-opacity duration-500 ${isButtonVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                     <InterfaceButtons
                         openModal={openModal}
                         user1={user1}
@@ -69,6 +70,7 @@ function App() {
                         settings1={settings1}
                         menu1={menu1}
                         store1={store1}
+                        system1={system1}
                     />
                 </div>
 
@@ -78,6 +80,7 @@ function App() {
                 {/* Модалка */}
                 {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
             </div>
+
             {/* Кнопка для показа/скрытия компонента FavGame */}
             <ToggleFavGameButton toggleFavGame={toggleFavGame} isFavGameVisible={isFavGameVisible} />
 

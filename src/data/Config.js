@@ -1,23 +1,35 @@
-import User from "./user.jsx";
-import Console from "./console.jsx";
-import Game from "./game.jsx";
-import Settings from "./settings.jsx";
-import Menu from "./menu.jsx";
-import Store from "./store.jsx";
+// src/data/config.js
+import User from "./User.js";
+import Console from "./Console.js";
+import Game from "./Game.js";
+import Settings from "./settings.js";
+import Menu from "./Menu.js";
+import Store from "./Store.js";
+import System from "./System.js";
+import Special from "./Special.js";
 
 // Конфигурация объектов с более детализированной структурой
-export const user1 = new User("Игрок 1", 15, 120);
-export const console1 = [
-    new Console("Nintendo Switch", 1000, "v1.05"),
-];
+export const user1 = new User({
+    id: 111,
+    username: "Крутой Чувак 78",
+    level: 20,
+    gamesPlayed: 120,
+    friends: ["Leha", "Anton"],
+    image: "https://cdn.ruplay.market/data/images/1e604f3e-6903-4385-80cf-53c90100bb62",
+    firstname: "Человек",
+    lastname: "Крутовый",
+    phone: "+9089234812",
+    email: "FEDROID123@gmial.com",
+    balans: 100,
+});
 
-export const friends = [
-    new Console("Nintendo Switch", 1000, "v1.05"),
-];
+export const system1 = new System("Nintendo Switch", 1000, "v1.05", 60, 60, true, true, true);
+export const console1 = new Special("Нинтендо ОС", 2017, "GJ21KL35");
 
-export const game1 = new Game("Zelda: Breath of the Wild", "Adventure", 9);
-export const settings1 = new Settings(80, 50, "Russian");
-export const menu1 = new Menu(["Начать", "Настройки", "Помощь"]);
+export const game1 = new Game("Zelda: Breath of the Wild", "Adventure", 9, 100, "03.03.2017");
+export const settings1 = new Settings(80, 50, "Russian", true, true);
+
+export const menu1 = new Menu(["Начать", "Настройки", "Удалить", "Помощь"]);
 
 export const store1 = new Store(
     [
