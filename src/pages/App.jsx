@@ -1,17 +1,17 @@
-import './App.css'; // Стили для приложения
-import Header from "./components/header.jsx"; // Компонент "Header" (заголовок)
-import SideLeft from "./components/SideLeft.jsx"; // Левый блок
-import ConScrOnOff from "./components/PowerButton.jsx"; // Компонент для включения/выключения экрана консоли
-import SideRight from "./components/SideRight.jsx"; // Правый блок
-import Modal from "./components/modal.jsx"; // Компонент модального окна
-import InterfaceButtons from "./components/InterfaceButtons.jsx"; // Компонент для отображения кнопок интерфейса
-import FavGame from "./components/FavGame.jsx"; // Компонент с избранными играми
-import ToggleFavGameButton from "./components/ToggleFavGameButton.jsx"; // Компонент кнопки для показа/скрытия
-import TutorialModal from "./components/TutorialModal.jsx"; // Импортируем компонент модального окна обучения
-import ConsoleInfo from "./components/ConsoleInfo.jsx";
+import '../App.css'; // Стили для приложения
+import Header from "../components/Header.jsx"; // Компонент "Header" (заголовок)
+import SideLeft from "../components/SideLeft.jsx"; // Левый блок
+import ConScrOnOff from "../components/PowerButton.jsx"; // Компонент для включения/выключения экрана консоли
+import SideRight from "../components/SideRight.jsx"; // Правый блок
+import Modal from "../components/Modal.jsx"; // Компонент модального окна
+import InterfaceButtons from "../components/InterfaceButtons.jsx"; // Компонент для отображения кнопок интерфейса
+import FavGame from "../components/FavGame.jsx"; // Компонент с избранными играми
+import ToggleFavGameButton from "../components/ToggleFavGameButton.jsx"; // Компонент кнопки для показа/скрытия
+import TutorialModal from "../components/TutorialModal.jsx"; // Импортируем компонент модального окна обучения
+import ConsoleInfo from "../components/ConsoleInfo.jsx";
 
 import { useState, useEffect } from "react"; // Хук useState для управления состоянием компонентов
-import { user1, console1, game1, settings1, menu1, store1, system1 } from "./data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
+import { user1, console1, game1, settings1, menu1, store1, system1 } from "../data/config.js"; // Импортируем данные для пользователя, консоли, игры и т.д.
 
 function App() {
     const [modalContent, setModalContent] = useState(""); // Состояние для контента модалки

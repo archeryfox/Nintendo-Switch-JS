@@ -1,7 +1,7 @@
 // TutorialModal.jsx
 import React from 'react';
 import Modal from './modal.jsx'; // Импортируем основной компонент модального окна
-import video from '../assets/video.mp4'; // Импортируем видеофайл
+import video from '../../public/video.mp4'; // Импортируем видеофайл
 
 const GuideModal = ({ isOpen, onClose }) => {
     const content = (
