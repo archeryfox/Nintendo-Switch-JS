@@ -3,7 +3,7 @@ import React from "react";
 import System from "../data/System.js"; // Убедитесь, что путь правильный
 
 // Функция для отображения системных характеристик
-const RenderSystemInfo = (system) => {
+const renderSystemInfo = (system) => {
     return (
         <div className="mt-4">
             <h3 className="text-lg font-semibold text-gray-800">Системные характеристики</h3>
